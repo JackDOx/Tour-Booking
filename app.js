@@ -16,6 +16,7 @@ const bookingRouter = require('./routes/bookingRoutes');
 const viewRouter = require('./routes/viewRoutes');
 const cookieParser = require('cookie-parser');
 
+
 const app = express();
 
 // Setting pug engine and the file that hold the pug template: views
