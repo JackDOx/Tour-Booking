@@ -57,7 +57,7 @@ if(userDataForm) {
     // const name = document.getElementById('name').value;
     // const email = document.getElementById('email').value;
 
-    console.log(form);
+    // console.log(form);
     updateSettings(form, 'data');
   });
 };

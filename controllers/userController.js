@@ -82,8 +82,8 @@ const filterObj = (obj, ...allowedFields) => {
 
 exports.updateMe = catchAsync( async (req, res, next) => {
   // 1) Create error if user POSs password data
-  console.log(req.file);
-  console.log(req.body);
+  // console.log(req.file);
+  // console.log(req.body);
   if (req.body.password || req.body.passwordConfirm){
     return next(new AppError(
       'This route is not for password updates. Please use /updateMyPassword.', 400));

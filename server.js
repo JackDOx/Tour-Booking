@@ -32,12 +32,12 @@ mongoose.connect(DB, {        // Return a promise
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-    console.log(`App listening to port ${port}`);
+    // console.log(`App listening to port ${port}`);
 });
 
 // Handling unhandled exceptions . Ie. database password is wrong
 process.on('unhandledRejection', err => {
-    console.log(err.name, err.message);
+    // console.log(err.name, err.message);
     server.close(() =>{
         process.exit(1);
     })
