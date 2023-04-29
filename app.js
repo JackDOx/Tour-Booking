@@ -20,6 +20,7 @@ const cookieParser = require('cookie-parser');
 
 const app = express();
 
+app.enable('trust proxy');
 // Setting pug engine and the file that hold the pug template: views
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
