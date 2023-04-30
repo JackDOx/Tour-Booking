@@ -25,7 +25,10 @@ const createSendToken = (user, statusCode, res) =>{
   };
 
   // use SET will make production has a white space after it
-  if(process.env.NODE_ENV === 'production ') {
+  // if(process.env.NODE_ENV === 'production ') {
+  //   cookieOptions.secure = true;  // secure will make the cookie can't be read
+  // };
+  if(process.env.NODE_ENV != 'development') {
     cookieOptions.secure = true;  // secure will make the cookie can't be read
   };
 

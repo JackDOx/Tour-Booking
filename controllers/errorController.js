@@ -22,7 +22,7 @@ module.exports = (err, req, res, next) => {
     });
   }
   
-  } else if(process.env.NODE_ENV === 'production ')
+  } else //if(process.env.NODE_ENV === 'production ')
     {
       if (req.originalUrl.startsWith('/api')){
         if(err.name === 'CastError') {
