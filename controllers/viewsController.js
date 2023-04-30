@@ -73,6 +73,20 @@ exports.getMyTours = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.forgotPassword = catchAsync(async (req, res, next) => {
+  res.status(200).render('forgotPassword', {
+    title: 'Forgot Password'
+  });
+});
+
+exports.resetPassword = catchAsync(async (req, res, next) => {
+  res.status(200).render('resetPassword', {
+    title: 'Reset your password',
+    token: req.params.resetToken
+
+  });
+});
+
 exports.updateUserData = catchAsync(async (req, res, next) => {
   // console.log(req.body);
   // console.log(req.user.id);

@@ -6,12 +6,16 @@ import { displayMap } from './mapbox.js';
 import { updateSettings } from './update.js';
 import { bookTour } from './stripe.js';
 import { signup } from './signup.js';
+import { forgot } from './forgot.js';
+import { reset } from './reset.js';
 
 // DOM ELEMENTS
 const mapBox = document.getElementById('map');
 const loginForm = document.querySelector('.form--login');
 const logOutBtn = document.querySelector('.nav__el--logout');
 const signupForm = document.querySelector('.form--signup');
+const forgotBtn = document.querySelector('.form--forgot');
+const resetBtn = document.querySelector('.form--reset');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const bookBtn = document.getElementById('book-tour');
@@ -88,12 +92,31 @@ if (bookBtn) {
   });
 };
 
+if (forgotBtn) {
+  forgotBtn.addEventListener('submit', e => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    forgot(email);
+  });
+};
+
+if (resetBtn) {
+  resetBtn.addEventListener('submit', e => {
+    e.preventDefault();
+    const token = resetBtn.getAttribute('data-token'); // get token from the data of the form
+    // console.log(token);
+    const password = document.getElementById('password').value;
+    const passwordConfirm = document.getElementById('passwordConfirm').value;
+    reset(token, password, passwordConfirm);
+  });
+};
+
 // COOKIE CONSENT BLOCK
 const cookieBox = document.querySelector(".wrapper"),
   buttons = document.querySelectorAll(".button");
 
 const executeCodes = () => {
-  //if cookie contains codinglab it will be returned and below of this code will not run
+  //if cookie contains consent it will be returned and below of this code will not run
   if (document.cookie.includes("codinglab")) return;
   cookieBox.classList.add("show");
 
