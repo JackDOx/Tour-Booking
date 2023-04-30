@@ -31,9 +31,9 @@ block content
             use(xlink:href='/img/icons.svg#icon-map-pin')
           span.heading-box__text= tour.startLocation.description
         if user
-          button.btn.btn--green.span-all-rows#book-tour(data-tour-id=`${tour.id}`) Book tour now!
+          button.btn.btn--red.span-all-rows#book-tour(data-tour-id=`${tour.id}`) Book tour now!
         else
-          a.btn.btn--green.span-all-rows(href='/login') Log in to book tour
+          a.btn.btn--red.span-all-rows(href='/login') Log in to book tour
 
   section.section-description
     .overview-box
