@@ -27,7 +27,7 @@ exports.getCheckoutSession = catchAsync(async(req, res, next) =>{
      payment_method_types: ['card'],
      // success_url: `${req.protocol}://${req.get('host')}/`, //user will be redirected to this url when payment is successful. home page
      // cancel_url: `${req.protocol}://${req.get('host')}/${tour.slug}`, //user will be redirected to this url when payment has an issue. tour page (previous page)
-     success_url: `${req.protocol}://${req.get('host')}/?tour=${tour.id}&user=${req.user.id}&pricce=${tour.price}`,
+     success_url: `${req.protocol}://${req.get('host')}/?tour=${tour.id}&user=${req.user.id}&price=${tour.price}`,
      cancel_url: `${req.protocol}://${req.get('host')}/tour/${tour.slug}`,
      customer_email: req.user.email,
      client_reference_id: req.params.tourId, //this field allows us to pass in some data about this session that we are currently creating.
