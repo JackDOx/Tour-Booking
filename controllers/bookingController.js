@@ -43,11 +43,11 @@ exports.getCheckoutSession = catchAsync(async(req, res, next) =>{
   // success_url: `${req.protocol}://${req.get('host')}/my-tours/?tour=${
   //   req.params.tourId
   // }&user=${req.user.id}&price=${tour.price}`,
-  success_url: `${req.protocol}://${req.get('host')}/my-tours?alert=booking`,
+  success_url: `${req.protocol}://${req.get('host')}`,
   cancel_url: `${req.protocol}://${req.get('host')}/tour/${tour.slug}`,
   customer_email: req.user.email,
   client_reference_id: req.params.tourId,
-  line_items: [
+  display_items: [
     {
       name: `${tour.name} Tour`,
       description: tour.summary,
