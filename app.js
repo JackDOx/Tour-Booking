@@ -8,6 +8,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const compression = require('compression');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -56,7 +57,7 @@ const limiter = rateLimit({
 app.use('/api', limiter); // apply this limiter to /api
 
 // webhook need to be read in a raw data, not in json format
-app.post('/webhook-checkout', express.raw(), bookingController.webhookCheckout);
+app.post('/webhook-checkout', bodyParser.raw({ type: 'application/json' }), bookingController.webhookCheckout);
 // Body parser, reading data from body into req.body
 app.use(express.json({ limit: '10kb'})); // limit to 10kb request
 app.use(express.urlencoded({ extended: true, limit: '10kb' })); // this code is to parse the data from .form
