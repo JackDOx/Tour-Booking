@@ -7,7 +7,9 @@ const router = express.Router();
 
 // no need to specify path to pug file bcs we already did that on router.set
 
-router.get('/', bookingController.createBookingCheckout, authController.isLoggedIn, viewsController.getOverview);
+router.get('/', 
+// bookingController.createBookingCheckout, 
+authController.isLoggedIn, viewsController.getOverview);
 
 router.get('/tour/:slug', authController.isLoggedIn, viewsController.getTour);
 
