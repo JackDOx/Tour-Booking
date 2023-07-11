@@ -3,7 +3,7 @@
 import { showAlert } from './alerts.js';
 
 export const bookTour = async tourId => {
-  const stripe = Stripe('pk_test_51NCAQOFQZuy2dcaHp0V18YhchNNqFoPMblQnZpTw0XcvNcFcVKiqH1ADAOE5RABjz0OuocvkANwdujt3Ht0DpMrI00YdVH8ERC');
+  const stripe = Stripe('pk_test_51N1lEJHSiOz7BD5IolfXrF7iKFdYDeWL9gIm5fIFcLvUuNBUZcSJ7yVXilrONW5qeWHGqtAIyJHoAqF2C2PK2ZhD004N6WAnQv');
   try {
     // 1) Get checkout session from API
     const session = await axios(`/api/v1/bookings/checkout-session/${tourId}`);
