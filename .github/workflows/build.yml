@@ -3,9 +3,35 @@ jobs:
   build-node:
     runs-on: ubuntu-latest
     container: node:19
+    env: # Define environment variables for the job
+      DATABASE: mongodb+srv://jackdo:<PASSWORD>@jdnode.gluxcom.mongodb.net/natours?retryWrites=true&w=majority
+      DATABASE_LOCAL: mongodb://localhost:27017/natours
+      DATABASE_PASSWORD: k0kXDnEBm8xpYMgG
+      EMAIL_FROM: jamiehuynh2022@gmail.com
+      EMAIL_HOST: sandbox.smtp.mailtrap.io
+      EMAIL_PASSWORD: 317915355170b6
+      EMAIL_PORT: 25
+      EMAIL_USERNAME: 18b331d21ff2ed
+      JWT_COOKIE_EXPIRES_IN: 60
+      JWT_EXPIRES_IN: 60d
+      JWT_SECRET: jack-super-secure-and-powerful-secret
+      NODE_ENV: production
+      PORT: 3000
+      SENDGRID_PASSWORD: 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
+      SENDGRID_USERNAME: apikey
+      STRIPE_SECRET_KEY: sk_test_51N1lEJHSiOz7BD5I9zvBYGUj2VGD0dcjLemkeJLkM8rB1fEK6Xc7kiJZ0Cs1XtroaclnYv6S1Qyk2kY0QWWLs3po00r6fjEC6W
+      STRIPE_WEBHOOK_SECRET: whsec_N0gyMZNNbbR5U7U1tuI96xpHFDTL3MxZ
     steps:
-      - run: node --version
-      - run: npm --version
-      - uses: actions/checkout@v3
-      - run: npm install
-      - run: node server.js
+      - name: Print Node.js and npm versions
+        run: |
+          node --version
+          npm --version
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Node.js server
+        run: node server.js
